@@ -97,7 +97,7 @@ class loginPage extends Component {
       }=this.state;
 
       //post request to backend
-     fetch('api/counters'){
+     fetch('api/counters'{
         method:'POST'
         body: JSON.stringify({
           firstName: signUpFirstName,
