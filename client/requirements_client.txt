@@ -1,0 +1,4 @@
+bootstrap
+reactstrap
+uuid
+react-transition-group

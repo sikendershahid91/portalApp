@@ -2,10 +2,10 @@
 
 run the following command:
 
-npm install $( cat requirement_server.txt )
+npm install $( cat requirements_server.txt )
 npm install -D nodemon
 npm run client-install 
-
+cd client && npm install $( cat requirements_client.txt ) 
 
 
 to run just server:
