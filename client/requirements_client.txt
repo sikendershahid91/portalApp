@@ -3,3 +3,4 @@ reactstrap
 uuid
 react-transition-group
 proxy
+axios
