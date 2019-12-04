@@ -1,5 +1,4 @@
 {
-    "mongoURI" : "mongodb+srv://alexisbustos:rodriguez@cluster0-xlno4.mongodb.net/test?retryWrites=true&w=majority"
-    "jwtSecret": "password"
-    
+  "mongoURI": "PUT_YOUR_MONGO_URI",
+  "jwtSecret": "sl_myJwtSecret"
 }
