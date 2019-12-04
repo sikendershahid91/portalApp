@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const config = require('../../config');
 
+const keys = require("../../config/keys");
 const User = require("../../models/User");
 
 const Validator = require("validator");
@@ -137,7 +137,7 @@ User.findOne({ email }).then(user => {
 // 
         jwt.sign(
           payload,
-          config.get('secretOrKey'),
+          keys.secretOrKey,
           {
             expiresIn: 31556926 // 1 year in seconds
           },

@@ -1,8 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const config = require('config'); 
-
 
 const app = express();
 
@@ -10,7 +8,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
-mongoose.connect(config.get('mongoURI'),
+const db = require('./config/keys').mongoURI;
+mongoose.connect(db,
 		 {
 		     useNewUrlParser: true,
 		     useCreateIndex: true
