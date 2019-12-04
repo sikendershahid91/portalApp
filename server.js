@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(bodyParser.join());
+app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
-app.listen(port, ()=> consol.log("Successful connections"));
+app.listen(port, ()=> console.log(`Successful connections: ${process.env.PORT || 5000}`));
 
