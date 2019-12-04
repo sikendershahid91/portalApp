@@ -2,3 +2,9 @@ express
 body-parser
 mongoose
 concurrently
+config
+passport
+bcryptjs
+jsonwebtoken
+validator
+is-empty

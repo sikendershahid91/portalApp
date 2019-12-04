@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+<<<<<<< HEAD
 const keys = require("../../config/keys");
 
 const validateRegisterInput = require("../../validation/register");
@@ -10,6 +11,84 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 
 //-------------------
+=======
+
+const keys = require("../../config/keys");
+const User = require("../../models/User");
+
+const Validator = require("validator");
+const isEmpty = require("is-empty");
+
+
+//HELPERRMETHODS
+function validateLoginInput(data) {
+let errors = {};
+
+data.email = !isEmpty(data.email) ? data.email : "";
+data.password = !isEmpty(data.password) ? data.password : "";
+
+if (Validator.isEmpty(data.email)) {
+    errors.email = "Email field is required";
+} else if (!Validator.isEmail(data.email)) {
+    errors.email = "Email is invalid";
+}
+
+if (Validator.isEmpty(data.password)) {
+    errors.password = "Password field is required";
+}
+return {
+    errors,
+    isValid: isEmpty(errors)
+  };
+};
+
+
+function validateRegisterInput(data) {
+let errors = {};
+
+data.name = !isEmpty(data.name) ? data.name : "";
+data.email = !isEmpty(data.email) ? data.email : "";
+data.password = !isEmpty(data.password) ? data.password : "";
+data.password2 = !isEmpty(data.password2) ? data.password2 : "";
+data.admin = !isEmpty(data.admin) ? data.admin: "";
+
+if (Validator.isEmpty(data.name)) {
+    errors.name = "Name field is required";
+}
+
+
+if (Validator.isEmpty(data.email)) {
+    errors.email = "Email field is required";
+} else if (!Validator.isEmail(data.email)) {
+    errors.email = "Email is invalid";
+}
+
+if(Validator.isEmpty(data.admin)){ 
+    errors.admin = "Admin Role is required";
+}
+
+
+if (Validator.isEmpty(data.password)) {
+    errors.password = "Password field is required";
+}
+if (Validator.isEmpty(data.password2)) {
+    errors.password2 = "Confirm password field is required";
+}
+if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
+    errors.password = "Password must be at least 6 characters";
+}
+if (!Validator.equals(data.password, data.password2)) {
+    errors.password2 = "Passwords must match";
+}
+return {
+    errors,
+    isValid: isEmpty(errors)
+  };
+};
+
+
+// MAIN
+>>>>>>> new_start
 router.post("/register", (req, res) =>{
     const{ errors, isValid } = validateRegisterInput(req.body);
     if(!isValid){
@@ -90,4 +169,8 @@ User.findOne({ email }).then(user => {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> new_start
