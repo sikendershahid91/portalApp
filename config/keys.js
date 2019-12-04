@@ -1,3 +1,4 @@
 module.exports = {
-    mongoURI: 'mongodb+srv://alexisbustos:rodriguez@cluster0-xlno4.mongodb.net/test?retryWrites=true&w=majority'
+    db: 'mongodb://username:password@url:port/db',
+    db_dev: 'mongodb://localhost:27017/login_demo',
 };

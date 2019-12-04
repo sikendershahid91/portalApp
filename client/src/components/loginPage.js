@@ -27,6 +27,10 @@ class loginPage extends Component {
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
     this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
     this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
+
+    this.onSignIn = this.onSignIn.bind(this);
+      this.onSignUp = this.onSignUp.bind(this);
+
 }
     componentDidMount() {
 	const token = getFromStorage('the_main_app');
@@ -83,8 +87,39 @@ class loginPage extends Component {
 	this.setState({
 	    signUpLastName: event.target.value,
 	});
-    }  
-    
+    }
+    onSignUp(){
+      const{
+        signUpFirstName,
+        signUpLastName,
+        signUpEmail,
+        signUpPassword
+      }=this.state;
+
+      //post request to backend
+      fetch('api/counters',){
+        methd:'POST'
+        body: JSON.stringify({
+          firstName: signUpFirstName,
+          lastName: signUpLastName,
+          email: signUpEmail,
+          password: signUpPassword
+        }),
+      })
+      .then(res=>res.json())
+      .then(json=>{
+
+        this.setState({
+          signUpError=json.message,
+        });
+      });
+
+    }
+    onSignIn(){
+      //grab setState
+      //post request to backend
+    }
+
     render() {
 	const{
 	    isLoading,
@@ -120,7 +155,7 @@ class loginPage extends Component {
 		placeholder="Password"
 		value={signInPassword}
 		onChange={this.onTextboxChangeSignInPassword}/><br />
-		    <button>Sign In</button>
+		    <button onClick={this.onSignIn}>Sign In</button>
 		    </div>
 		    <br />
 		    <br />
@@ -146,7 +181,7 @@ class loginPage extends Component {
 		placeholder="Password"
 		value={signUpPassword}
 		onChange={this.onTextboxChangeSignUpPassword}/><br />
-		    <button>Sign Up</button>
+		    <button onClick={this.onSignUp}>Sign Up</button>
 		    </div>
 		    </div>
 	    );
@@ -162,4 +197,4 @@ class loginPage extends Component {
 
 
 
-export default loginPage; 
+export default loginPage;
