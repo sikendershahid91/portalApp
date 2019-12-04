@@ -8,3 +8,4 @@ bcryptjs
 jsonwebtoken
 validator
 is-empty
+passport-jwt

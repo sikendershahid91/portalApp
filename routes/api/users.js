@@ -2,16 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-<<<<<<< HEAD
-const keys = require("../../config/keys");
 
-const validateRegisterInput = require("../../validation/register");
-const validateLoginInput = require("../../validation/login");
-
-const User = require("../../models/User");
-
-//-------------------
-=======
 
 const keys = require("../../config/keys");
 const User = require("../../models/User");
@@ -88,7 +79,7 @@ return {
 
 
 // MAIN
->>>>>>> new_start
+
 router.post("/register", (req, res) =>{
     const{ errors, isValid } = validateRegisterInput(req.body);
     if(!isValid){
@@ -118,6 +109,7 @@ router.post("/register", (req, res) =>{
         }
       });
     });
+
 
 router.post("/login", (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
@@ -169,8 +161,5 @@ User.findOne({ email }).then(user => {
   });
 });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-module.exports = router;
->>>>>>> new_start
+
