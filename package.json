@@ -1,0 +1,35 @@
+{
+  "name": "portalapp",
+  "version": "1.0.0",
+  "description": "PortalApplication",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client":"npm start --prefix client",
+    "dev":"concurrently \"npm run server\" \"npm run client\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sikendershahid91/portalApp.git"
+  },
+  "keywords": [
+    "nokeywords"
+  ],
+  "author": "sik_alexis_tanya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sikendershahid91/portalApp/issues"
+  },
+  "homepage": "https://github.com/sikendershahid91/portalApp#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}
