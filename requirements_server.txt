@@ -3,3 +3,4 @@ body-parser
 mongoose
 concurrently
 config
+passport

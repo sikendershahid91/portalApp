@@ -10,8 +10,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const db = config.get('mongoURI');
-mongoose.connect(db,
+mongoose.connect(config.get('mongoURI'),
 		 {
 		     useNewUrlParser: true,
 		     useCreateIndex: true
